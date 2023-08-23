@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "359343519018",
+    "project_id": "socialred-94e88",
+    "storage_bucket": "socialred-94e88.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:359343519018:android:289057c4b031d710d19a53",
+        "android_client_info": {
+          "package_name": "com.example.socialred"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "359343519018-j7dludvi8697jdno3kh7t37ja933gklj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.socialred",
+            "certificate_hash": "fe38531af8e3886558dbdebfde869f2c822c3e5f"
+          }
+        },
+        {
+          "client_id": "359343519018-mmdj0ic6fd23c9588ll4lin35u2oe5p3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0excnInXUvSrbmnjP9qUlDOZ80PyQGbI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "359343519018-mmdj0ic6fd23c9588ll4lin35u2oe5p3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "359343519018-vajojlcl3tsl8tm9bp4vvagegrbmqo42.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.socialred"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
