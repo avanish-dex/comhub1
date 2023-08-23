@@ -46,6 +46,7 @@ dependencies:
   pod_player: ^0.0.6
   dartz: ^0.10.1
   fpdart: ^1.1.0
+  routemaster: ^1.0.1
 
 dev_dependencies:
   flutter_test:
