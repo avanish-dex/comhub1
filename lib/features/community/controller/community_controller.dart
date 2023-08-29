@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:comhub1/core/constants/constants.dart';
+import 'package:comhub1/core/failure.dart';
 import 'package:comhub1/core/providers/storage_repository_provider.dart';
 import 'package:comhub1/core/utils.dart';
 import 'package:comhub1/features/auth/controller/auth_controller.dart';
@@ -7,6 +8,7 @@ import 'package:comhub1/features/community/repository/community_repository.dart'
 import 'package:comhub1/models/community_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:fpdart/fpdart.dart';
 import 'package:routemaster/routemaster.dart';
 
 final userCommunitiesProvider = StreamProvider((ref) {
@@ -65,6 +67,24 @@ class CommunityController extends StateNotifier<bool> {
     res.fold((l) => showSnackBar(context, l.message), (r) {
       showSnackBar(context, 'Community created Successfully');
       Routemaster.of(context).pop();
+    });
+  }
+
+  void joinCommunity(Community community, BuildContext context) async {
+    final user = _ref.read(userProvider)!;
+    Either<Failure, void> res;
+
+    if (community.members.contains(user.uid)) {
+      res = await _communityRepository.leaveCommunity(community.name, user.uid);
+    } else {
+      res = await _communityRepository.joinCommunity(community.name, user.uid);
+    }
+    res.fold((l) => showSnackBar(context, l.message), (r) {
+      if (community.members.contains(user.uid)) {
+        showSnackBar(context, 'You have left the communtiy succesfully');
+      } else {
+        showSnackBar(context, 'You have joined the communtiy succesfully');
+      }
     });
   }
 

@@ -45,7 +45,7 @@ class SearchCommunityDelegate extends SearchDelegate {
                 leading: CircleAvatar(
                   backgroundImage: NetworkImage(community.avatar),
                 ),
-                title: Text(community.name),
+                title: Text('r/${community.name}'),
                 onTap: () => navigateToCommunity(context, community.name),
               );
             },
@@ -56,6 +56,6 @@ class SearchCommunityDelegate extends SearchDelegate {
   }
 
   void navigateToCommunity(BuildContext context, String communityName) {
-    Routemaster.of(context).push(communityName);
+    Routemaster.of(context).push('r/$communityName');
   }
 }
