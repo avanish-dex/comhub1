@@ -50,7 +50,7 @@ class _MyAppState extends ConsumerState<MyApp> {
           data: (data) => MaterialApp.router(
             debugShowCheckedModeBanner: false,
             title: 'Community Hub',
-            theme: Pallete.lightModeAppTheme,
+            theme: Pallete.darkModeAppTheme,
             routerDelegate: RoutemasterDelegate(
               routesBuilder: (context) {
                 if (data != null) {
