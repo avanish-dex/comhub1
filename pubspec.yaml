@@ -50,6 +50,8 @@ dependencies:
   dotted_border: ^2.0.0+3
   file_picker: ^5.2.10
   shared_preferences: ^2.2.0
+  uuid: ^4.0.0
+  any_link_preview: ^3.0.0
 
 dev_dependencies:
   flutter_test:
