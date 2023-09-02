@@ -1,9 +1,11 @@
 import 'dart:io';
 
+import 'package:comhub1/core/enums/enums.dart';
 import 'package:comhub1/core/providers/storage_repository_provider.dart';
 import 'package:comhub1/core/utils.dart';
 import 'package:comhub1/features/auth/controller/auth_controller.dart';
 import 'package:comhub1/features/user_profile/repository/user_profile_repository.dart';
+import 'package:comhub1/models/post_model.dart';
 import 'package:comhub1/models/user_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -17,6 +19,10 @@ final userProfileControllerProvider =
       userProfileRepository: userProfileRepository,
       ref: ref,
       storageRepository: storageRepository);
+});
+
+final getUserPostsProvider = StreamProvider.family((ref, String uid) {
+  return ref.read(userProfileControllerProvider.notifier).getUserPosts(uid);
 });
 
 class UserProfileController extends StateNotifier<bool> {
@@ -60,5 +66,18 @@ class UserProfileController extends StateNotifier<bool> {
       _ref.read(userProvider.notifier).update((state) => user);
       Routemaster.of(context).pop();
     });
+  }
+
+  Stream<List<Post>> getUserPosts(String uid) {
+    return _userProfileRepository.getUserPosts(uid);
+  }
+
+  void updateUserKarma(UserKarma karma) async {
+    UserModel user = _ref.read(userProvider)!;
+    user = user.copyWith(karma: user.karma + karma.karma);
+
+    final res = await _userProfileRepository.updateUserKarma(user);
+    res.fold((l) => null,
+        (r) => _ref.read(userProvider.notifier).update((state) => user));
   }
 }

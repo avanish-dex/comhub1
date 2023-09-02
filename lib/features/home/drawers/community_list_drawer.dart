@@ -37,7 +37,7 @@ class CommunityListDrawer extends ConsumerWidget {
                       return ListTile(
                         leading: CircleAvatar(
                             backgroundImage: NetworkImage(community.avatar)),
-                        title: Text('r/${community.name}'),
+                        title: Text(community.name),
                         onTap: () {
                           navigateToCommunity(context, community);
                         },

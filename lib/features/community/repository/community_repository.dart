@@ -4,6 +4,7 @@ import 'package:comhub1/core/failure.dart';
 import 'package:comhub1/core/providers/firebase_providers.dart';
 import 'package:comhub1/core/type_defs.dart';
 import 'package:comhub1/models/community_model.dart';
+import 'package:comhub1/models/post_model.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fpdart/fpdart.dart';
 
@@ -115,6 +116,21 @@ class CommunityRepository {
       return left(Failure(e.toString()));
     }
   }
+
+  Stream<List<Post>> getCommunityPosts(String name) {
+    return _posts
+        .where('communityName', isEqualTo: name)
+        .orderBy('createdAt', descending: true)
+        .snapshots()
+        .map(
+          (event) => event.docs
+              .map((e) => Post.fromMap(e.data() as Map<String, dynamic>))
+              .toList(),
+        );
+  }
+
+  CollectionReference get _posts =>
+      _firestore.collection(FirebaseConstants.postsCollection);
 
   CollectionReference get _communities =>
       _firestore.collection(FirebaseConstants.communitiesCollection);
