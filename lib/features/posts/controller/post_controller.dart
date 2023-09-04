@@ -29,6 +29,10 @@ final userPostsProvider =
   final postController = ref.watch(postControllerProvider.notifier);
   return postController.fetchUserPosts(communities);
 });
+final guestPostsProvider = StreamProvider((ref) {
+  final postController = ref.watch(postControllerProvider.notifier);
+  return postController.fetchGuestPosts();
+});
 
 final getPostByIdProvider = StreamProvider.family((ref, String postId) {
   final postController = ref.watch(postControllerProvider.notifier);
@@ -160,6 +164,10 @@ class PostController extends StateNotifier<bool> {
         Routemaster.of(context).pop();
       });
     });
+  }
+
+  Stream<List<Post>> fetchGuestPosts() {
+    return _postRepository.fetchGuestPosts();
   }
 
   Stream<List<Post>> fetchUserPosts(List<Community> communities) {

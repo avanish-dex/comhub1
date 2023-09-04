@@ -34,6 +34,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final user = ref.watch(userProvider)!;
+    final isGuest = !user.isAuthenticated;
     final currentTheme = ref.watch(themeNotifierProvider);
 
     return Scaffold(
@@ -66,27 +67,29 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       ),
       body: Constants.tabWidgets[_page],
       drawer: const CommunityListDrawer(),
-      endDrawer: const ProfileDrawer(),
-      bottomNavigationBar: CupertinoTabBar(
-        activeColor: currentTheme.iconTheme.color,
-        backgroundColor: currentTheme.colorScheme.background,
-        items: const [
-          BottomNavigationBarItem(
-              icon: Padding(
-                padding: EdgeInsets.only(top: 8),
-                child: Icon(Icons.home),
-              ),
-              label: ''),
-          BottomNavigationBarItem(
-              icon: Padding(
-                padding: EdgeInsets.only(top: 8),
-                child: Icon(Icons.add),
-              ),
-              label: ''),
-        ],
-        onTap: onPageChanged,
-        currentIndex: _page,
-      ),
+      endDrawer: isGuest ? null : const ProfileDrawer(),
+      bottomNavigationBar: isGuest
+          ? null
+          : CupertinoTabBar(
+              activeColor: currentTheme.iconTheme.color,
+              backgroundColor: currentTheme.colorScheme.background,
+              items: const [
+                BottomNavigationBarItem(
+                    icon: Padding(
+                      padding: EdgeInsets.only(top: 8),
+                      child: Icon(Icons.home),
+                    ),
+                    label: ''),
+                BottomNavigationBarItem(
+                    icon: Padding(
+                      padding: EdgeInsets.only(top: 8),
+                      child: Icon(Icons.add),
+                    ),
+                    label: ''),
+              ],
+              onTap: onPageChanged,
+              currentIndex: _page,
+            ),
     );
   }
 }
