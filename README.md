@@ -41,14 +41,13 @@ Create a scalable and maintainable codebase using Flutter, Firebase, and Riverpo
 
 ## Scope:
 
-The scope of the project includes:
-User registration and profile management.
-Community creation and moderation tools.
-Post creation, interaction, and award system.
-Karma point system to encourage user engagement.
-Google sign-in for ease of access.
-Guest user access with limited functionality.
+The mobile community engagement application, built on the Flutter framework and utilizing Firebase and Riverpod, offers a versatile platform for users to connect and participate in communities of their choice. Users can conveniently create accounts or sign in via Google, enhancing accessibility. Within the communities, members have the flexibility to join or leave various interest groups, fostering a sense of belonging and inclusivity. Community creators enjoy autonomy in managing their communities, enabling customization and rule-setting. The application promotes dynamic content interaction, allowing users to create, share, and engage with text posts and image links. Social interaction is further facilitated through the ability to upvote, downvote, comment on, and award posts for exceptional contributions. To encourage participation, a karma system rewards user activities, with karma points proudly displayed on user profiles. Even guest users have a place in the community, albeit with restricted access, ensuring a welcoming environment for all. Designed with scalability in mind, this application anticipates future growth and feature expansion, promising a vibrant and evolving community engagement experience.
 
+Adding additional features such as direct messaging, notifications, and user blocking.
+Expanding the platform to support more social interaction features.
+Integrating machine learning for content recommendations.
+Enhancing user analytics for community insights and engagement tracking.
+Addressing scalability needs as the user base grows.
 
 ## Methodology:
 
