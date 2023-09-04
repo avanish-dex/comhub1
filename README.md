@@ -15,15 +15,13 @@ A few resources to get you started if this is your first Flutter project:
 
 ## Table of Contents
 1. Introduction
-2. Project Overview
-3. Features
-4. Technology Stack
-5. Architecture
-6. User Authentication
-7. User Interface
-8. Data Storage and Retrieval
-9. State Management
-10. Deployment
+2. Objectives 
+3. Scope
+4. Methodology
+5. Tools & Technologies
+6. Expected Outcomes
+7. Conclusion
+
 
 ## Introduction:
 
@@ -69,7 +67,8 @@ The project expects to deliver a feature-rich mobile application that provides a
 
 
 
-In conclusion, this project aims to create a dynamic and engaging mobile application that fosters a sense of community and encourages user participation. It will leverage the power of Flutter, Firebase, and Riverpod to provide a scalable and feature-rich platform with room for future expansion and improvement.
+## conclusion:
+this project aims to create a dynamic and engaging mobile application that fosters a sense of community and encourages user participation. It will leverage the power of Flutter, Firebase, and Riverpod to provide a scalable and feature-rich platform with room for future expansion and improvement.
 
 few screenshots:
 
