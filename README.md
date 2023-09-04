@@ -36,15 +36,14 @@ The app provides a user-friendly interface for users to create accounts, log in,
 - Post Creation and Editing
 - Commenting on Posts
 - Upvoting and Downvoting Posts
-- Topic Follows
+- awards
 - User Profiles
-- Notifications
+- community profile
 
 ## 4. Technology Stack
 - Flutter: Cross-platform UI framework
 - Firebase: Backend services including Authentication and Firestore
 - Riverpod: State management
-- Cloud Functions: For backend logic and notifications
 - Material Design: UI components and guidelines
 
 ## 5. Architecture
