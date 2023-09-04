@@ -39,7 +39,7 @@ Implement a karma system to incentivize user engagement.
 Provide restricted features for guest users.
 Create a scalable and maintainable codebase using Flutter, Firebase, and Riverpod.
 
-##Scope:
+## Scope:
 
 The scope of the project includes:
 User registration and profile management.
