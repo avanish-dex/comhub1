@@ -25,52 +25,52 @@ A few resources to get you started if this is your first Flutter project:
 9. State Management
 10. Deployment
 
-## 1. Introduction
-The Social Media Discussion App is a mobile application designed to facilitate meaningful discussions and interactions among users on a variety of topics. The app aims to provide a platform where users can post content, engage in discussions, upvote and downvote posts, and connect with others who share similar interests.
+## Introduction:
 
-## 2. Project Overview
-The app provides a user-friendly interface for users to create accounts, log in, and explore various posts. Users can create their own posts, comment on existing posts, and engage in discussions through comments. The app encourages community participation and allows users to follow topics of interest.
+The project aims to develop a mobile application using Flutter, Firebase, and Riverpod. This application will provide a platform for users to join and participate in various communities. Users will have the ability to sign in with Google, create and edit their profiles, join or leave communities, and interact with community content. Additionally, community moderators will have the ability to manage their communities effectively. The application will focus on user engagement by implementing features like posting, upvoting/downvoting, commenting, awarding posts, and earning karma points for user activities. The project will also consider guest users with restricted features.
 
-## 3. Features
-- User Registration and Login
-- Post Creation and Editing
-- Commenting on Posts
-- Upvoting and Downvoting Posts
-- awards
-- User Profiles
-- community profile
+## Objectives:
 
-## 4. Technology Stack
-- Flutter: Cross-platform UI framework
-- Firebase: Backend services including Authentication and Firestore
-- Riverpod: State management
-- Material Design: UI components and guidelines
+Create a mobile application that allows users to join, create, and leave communities.
+Implement Google sign-in and user profile management features.
+Enable community moderators to manage community settings.
+Develop features for users to post content, upvote/downvote, comment, and award posts.
+Implement a karma system to incentivize user engagement.
+Provide restricted features for guest users.
+Create a scalable and maintainable codebase using Flutter, Firebase, and Riverpod.
 
-## 5. Architecture
-The app follows a modular architecture to promote maintainability and scalability. The core components include:
-- **User Authentication**: Firebase Authentication for secure user registration and login.
-- **Database**: Firestore for storing posts, comments, user profiles, and topic data.
-- **State Management**: Riverpod for managing the app's state and data flow.
-- **UI Components**: Custom widgets following Material Design principles.
+##Scope:
 
-## 6. User Authentication
-Users can register using their email and password or log in with their existing accounts. Firebase Authentication ensures secure handling of user credentials.
-
-## 7. User Interface
-The UI is designed to be intuitive and user-friendly. Users can navigate through various screens such as the home feed, user profile, post creation, and topic exploration. The Material Design guidelines are followed to ensure a consistent and visually appealing experience.
-
-## 8. Data Storage and Retrieval
-Firestore is used for storing and retrieving data. Posts, comments, user profiles, and topics are organized in collections and documents. Firestore's real-time capabilities ensure that users receive live updates to posts and discussions.
-
-## 9. State Management
-Riverpod is used for state management, providing a predictable way to manage and share app state between different screens. It helps maintain a clear separation between UI and business logic.
-
-## 10. Deployment
-The app can be deployed on Android and iOS platforms using Flutter's cross-platform capabilities. Firebase Hosting can be used to host the web version of the app.
+The scope of the project includes:
+User registration and profile management.
+Community creation and moderation tools.
+Post creation, interaction, and award system.
+Karma point system to encourage user engagement.
+Google sign-in for ease of access.
+Guest user access with limited functionality.
 
 
+## Methodology:
 
-The Social Media Discussion App aims to create an engaging and inclusive environment for users to share ideas, connect with others, and foster meaningful discussions.
+Utilize Flutter for building the mobile application's user interface.
+Implement Firebase for user authentication, database management, and storage.
+Utilize Riverpod for state management to ensure a scalable and maintainable codebase.
+Follow an agile development methodology with regular iterations and feedback loops.
+
+## Tools & Technologies:
+
+Flutter for cross-platform mobile app development.
+Firebase for user authentication, real-time database, and cloud storage.
+Riverpod for state management within the app.
+Time Line:
+
+## Expected Outcome:
+
+The project expects to deliver a feature-rich mobile application that provides a seamless experience for users to join and engage with communities. It aims to encourage user participation through the implementation of a karma system and provide community moderators with the necessary tools for effective management. The app should be well-documented and designed for future scalability and feature additions.
+
+
+
+In conclusion, this project aims to create a dynamic and engaging mobile application that fosters a sense of community and encourages user participation. It will leverage the power of Flutter, Firebase, and Riverpod to provide a scalable and feature-rich platform with room for future expansion and improvement.
 
 few screenshots:
 
