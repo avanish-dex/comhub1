@@ -5,6 +5,7 @@ import 'package:comhub1/features/auth/controller/auth_controller.dart';
 import 'package:comhub1/features/posts/controller/post_controller.dart';
 import 'package:comhub1/features/posts/widgets/comment_card.dart';
 import 'package:comhub1/models/post_model.dart';
+import 'package:comhub1/responsive/responsive.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -44,13 +45,15 @@ class _CommentsScreenState extends ConsumerState<CommentsScreen> {
               children: [
                 PostCard(post: data),
                 if (!isGuest)
-                  TextField(
-                    onSubmitted: (val) => addComment(data),
-                    controller: commentController,
-                    decoration: const InputDecoration(
-                        hintText: 'comment your thoughts',
-                        filled: true,
-                        border: InputBorder.none),
+                  Responsive(
+                    child: TextField(
+                      onSubmitted: (val) => addComment(data),
+                      controller: commentController,
+                      decoration: const InputDecoration(
+                          hintText: 'comment your thoughts',
+                          filled: true,
+                          border: InputBorder.none),
+                    ),
                   ),
                 ref.watch(getPostCommentsProvider(widget.postId)).when(
                     data: (data) {

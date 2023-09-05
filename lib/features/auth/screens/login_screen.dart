@@ -2,6 +2,7 @@ import 'package:comhub1/core/common/loader.dart';
 import 'package:comhub1/core/common/sign_in_button.dart';
 import 'package:comhub1/core/constants/constants.dart';
 import 'package:comhub1/features/auth/controller/auth_controller.dart';
+import 'package:comhub1/responsive/responsive.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -36,7 +37,7 @@ class LoginScreen extends ConsumerWidget {
           ? const Loader()
           : Column(children: [
               const SizedBox(
-                height: 30,
+                height: 20,
               ),
               const Text(
                 'Dont know what',
@@ -47,19 +48,19 @@ class LoginScreen extends ConsumerWidget {
                 ),
               ),
               const SizedBox(
-                height: 30,
+                height: 20,
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Image.asset(
                   Constants.loginEmote,
-                  height: 400,
+                  height: 360,
                 ),
               ),
               const SizedBox(
-                height: 20,
+                height: 10,
               ),
-              const SignInButton(),
+              const Responsive(child: SignInButton()),
             ]),
     );
   }

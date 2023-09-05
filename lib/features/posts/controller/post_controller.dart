@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:comhub1/core/enums/enums.dart';
 import 'package:comhub1/core/providers/storage_repository_provider.dart';
@@ -131,12 +132,16 @@ class PostController extends StateNotifier<bool> {
     required String title,
     required Community selectedCommunity,
     required File? file,
+    required Uint8List? webFile,
   }) async {
     state = true;
     String postId = const Uuid().v1();
     final user = _ref.read(userProvider)!;
     final imageRes = await _storageRepository.storeFile(
-        path: 'posts/${selectedCommunity.name}', id: postId, file: file);
+        path: 'posts/${selectedCommunity.name}',
+        id: postId,
+        file: file,
+        webFile: webFile);
 
     imageRes.fold((l) => showSnackBar(context, l.message), (r) async {
       final Post post = Post(
