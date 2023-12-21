@@ -17,6 +17,7 @@ class AddPostScreen extends ConsumerWidget {
     double iconSize = kIsWeb ? 120 : 60;
     final currentTheme = ref.watch(themeNotifierProvider);
     return Scaffold(
+      appBar: AppBar(),
       body: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,

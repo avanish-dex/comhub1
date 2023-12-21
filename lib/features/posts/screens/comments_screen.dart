@@ -19,6 +19,7 @@ class CommentsScreen extends ConsumerStatefulWidget {
 
 class _CommentsScreenState extends ConsumerState<CommentsScreen> {
   final commentController = TextEditingController();
+
   @override
   void dispose() {
     super.dispose();
@@ -37,44 +38,61 @@ class _CommentsScreenState extends ConsumerState<CommentsScreen> {
   Widget build(BuildContext context) {
     final user = ref.watch(userProvider)!;
     final isGuest = !user.isAuthenticated;
-    return Scaffold(
-      appBar: AppBar(),
-      body: ref.watch(getPostByIdProvider(widget.postId)).when(
-          data: (data) {
-            return Column(
-              children: [
-                PostCard(post: data),
-                if (!isGuest)
-                  Responsive(
-                    child: TextField(
-                      onSubmitted: (val) => addComment(data),
-                      controller: commentController,
-                      decoration: const InputDecoration(
-                          hintText: 'comment your thoughts',
+
+    return FutureBuilder<Post>(
+      future: ref.read(getPostByIdProvider(widget.postId).future),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Loader();
+        } else if (snapshot.hasError) {
+          return ErrorText(error: snapshot.error.toString());
+        } else if (!snapshot.hasData) {
+          // Handle the case where the post data is not available.
+          return const Text('Post not found.');
+        } else {
+          final data = snapshot.data; // The post data is available here.
+          return Scaffold(
+            appBar: AppBar(),
+            body: SingleChildScrollView(
+              keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+              child: Column(
+                children: [
+                  PostCard(post: data!),
+                  if (!isGuest)
+                    Responsive(
+                      child: TextField(
+                        onSubmitted: (val) => addComment(data),
+                        controller: commentController,
+                        decoration: const InputDecoration(
+                          hintText: 'Comment your thoughts',
                           filled: true,
-                          border: InputBorder.none),
+                          border: InputBorder.none,
+                        ),
+                      ),
                     ),
-                  ),
-                ref.watch(getPostCommentsProvider(widget.postId)).when(
-                    data: (data) {
-                      return Expanded(
-                        child: ListView.builder(
+                  ref.watch(getPostCommentsProvider(widget.postId)).when(
+                        data: (data) {
+                          return ListView.builder(
+                            shrinkWrap: true,
+                            physics: const ClampingScrollPhysics(),
                             itemCount: data.length,
                             itemBuilder: (BuildContext context, int index) {
                               final comment = data[index];
                               return CommentCard(comment: comment);
-                            }),
-                      );
-                    },
-                    error: (error, stackTrace) {
-                      return ErrorText(error: error.toString());
-                    },
-                    loading: () => const Loader()),
-              ],
-            );
-          },
-          error: (error, stackTrace) => ErrorText(error: error.toString()),
-          loading: () => const Loader()),
+                            },
+                          );
+                        },
+                        error: (error, stackTrace) {
+                          return ErrorText(error: error.toString());
+                        },
+                        loading: () => const Loader(),
+                      ),
+                ],
+              ),
+            ),
+          );
+        }
+      },
     );
   }
 }

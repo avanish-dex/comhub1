@@ -172,7 +172,7 @@ class PostCard extends ConsumerWidget {
                               if (isTypeLink)
                                 Padding(
                                   padding:
-                                      const EdgeInsets.only(left: 0, right: 13),
+                                      const EdgeInsets.only(left: 0, right: 10),
                                   child: AnyLinkPreview(
                                     displayDirection:
                                         UIDirection.uiDirectionHorizontal,
@@ -183,7 +183,7 @@ class PostCard extends ConsumerWidget {
                                 Container(
                                   alignment: Alignment.bottomLeft,
                                   padding: const EdgeInsets.symmetric(
-                                      horizontal: 15.0),
+                                      horizontal: 10.0),
                                   child: Text(
                                     post.description!,
                                     style: const TextStyle(color: Colors.grey),
